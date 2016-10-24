@@ -1,0 +1,70 @@
+<div class="col-md-12">
+    <div class="category">
+        <h2>Billing and Shipping Info</h2> </div>
+    <div class="results">
+        <form id="contact-form" name="checkoutForm" ng-submit="submitUserForm()" novalidate class="col-sm-10 col-sm-offset-1">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group" ng-class="{ 'has-error' : checkoutForm.firstName.$invalid && !checkoutForm.firstName.$pristine }">
+                        <label class="control-label">First Name</label> <span ng-show="checkoutForm.firstName.$invalid && !checkoutForm.firstName.$pristine" class="help-block"> is required.</span>
+                        <input name="firstName" tabindex="1" class="form-control" type="text" ng-model="cart.user.firstName" required> </div>
+                    <div class="form-group" ng-class="{ 'has-error' : checkoutForm.email.$invalid && !checkoutForm.email.$pristine }">
+                        <label class="control-label">Email</label> <span ng-show="checkoutForm.email.$invalid && !checkoutForm.email.$pristine" class="help-block"> is required/invalid.</span>
+                        <input name="email" tabindex="3" class="form-control" type="email" ng-model="cart.user.email" required> </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group" ng-class="{ 'has-error' : checkoutForm.lastName.$invalid && !checkoutForm.lastName.$pristine }">
+                        <label class="control-label">Last Name</label><span ng-show="checkoutForm.lastName.$invalid && !checkoutForm.lastName.$pristine" class="help-block"> is required.</span>
+                        <input name="lastName" tabindex="2" class="form-control" type="text" ng-model="cart.user.lastName" required> </div>
+                    <div class="form-group" ng-class="{ 'has-error' : checkoutForm.phone.$invalid && !checkoutForm.phone.$pristine }">
+                        <label class="control-label">Phone</label><span ng-show="checkoutForm.phone.$invalid && !checkoutForm.phone.$pristine" class="help-block"> is required/invalid.</span>
+                        <input name="phone" tabindex="4" class="form-control" type="number" ng-minlength="10" ng-maxlength="10" ng-model="cart.user.phone" required> </div>
+                </div>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error' : checkoutForm.address.$invalid && !checkoutForm.address.$pristine }">
+                <label class="control-label">Address</label><span ng-show="checkoutForm.address.$invalid && !checkoutForm.address.$pristine" class="help-block"> is required/invalid.</span>
+                <input name="address" tabindex="5" class="form-control" type="text" ng-model="cart.user.address" required> </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group" ng-class="{ 'has-error' : checkoutForm.city.$invalid && !checkoutForm.city.$pristine }">
+                        <label class="control-label">City</label><span ng-show="checkoutForm.city.$invalid && !checkoutForm.city.$pristine" class="help-block"> is required/invalid.</span>
+                        <input name="city" tabindex="6" class="form-control" type="text" ng-model="cart.user.city" required> </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label class="control-label">Province</label>
+                        <select name="province" tabindex="7" class="form-control" ng-model="cart.user.province">
+                            <option value="AB">Alberta</option>
+                            <option value="BC">British Columbia</option>
+                            <option value="MB">Manitoba</option>
+                            <option value="NB">New Brunswick</option>
+                            <option value="NL">Newfoundland And Labrador</option>
+                            <option value="NS">Nova Scotia</option>
+                            <option value="ON">Ontario</option>
+                            <option value="PE">Prince Edward Island</option>
+                            <option value="QB">Quebec</option>
+                            <option value="SK">Saskatchewan</option>
+                            <option value="YK">Yukon</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group" ng-class="{ 'has-error' : checkoutForm.postalCode.$invalid && !checkoutForm.postalCode.$pristine }">
+                        <label class="control-label">Postal Code</label><span ng-show="checkoutForm.postalCode.$invalid && !checkoutForm.postalCode.$pristine" class="help-block"> is required/invalid.</span>
+                        <input name="postalCode" tabindex="8" class="form-control" type="text" ng-model="cart.user.postalCode" required> </div>
+                </div>
+            </div>
+            <input type="submit" class="btn btn-primary user-form-btn hidden" ng-disabled="checkoutForm.$invalid" value="Submit" />
+        </form>
+    </div>
+    <div class="sub-total">
+        <div class="row">
+            <div class="col-sm-3 col-sm-offset-9"> <a href="javascript:goToCheckout()" tabindex="9" class="btn btn-default checkout pull-right margin-top-30" ng-disabled="checkoutForm.$invalid">Checkout <i class="fa fa-long-arrow-right"></i></a> </div>
+        </div>
+    </div>
+    <script>
+        function goToCheckout(){
+            $('.user-form-btn').trigger('click');
+        }
+    </script>
+</div>

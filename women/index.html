@@ -1,0 +1,25 @@
+<div class="content container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="category">
+                <h2>Women</h2> </div>
+            <div class="results">
+                <div class="row">
+                    <div class="col-sm-6 col-md-4 item" ng-repeat="product in store.women | orderBy:'name' | filter:search">
+                        <div class="product-img"> 
+                            <img class="full-width img-responsive" src="{{product.image}}" alt="{{product.name}}"> 
+                        </div> 
+                        <a class="add-to-cart" href="javascript:void()" ng-click="cart.addItem(product.sku, product.name, product.image, product.price, 1)">
+                            <i class="fa fa-shopping-cart"></i> Add to cart
+                        </a>
+                        <div class="product-description margin-bottom-30">
+                            <div class="pull-left">
+                                <h4 class="title-price">{{product.name}}</h4> <span class="gender text-uppercase">Women</span> </div>
+                            <div class="product-price"> <span class="title-price">{{product.price | currency}}</span> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
